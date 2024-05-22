@@ -53,7 +53,6 @@ folder.eachFile { file ->
       }
       else
         return
-//            buffer += "\n"
     }
   }
 }
