@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc1f39bb-9342-46cd-8d10-b2c1dbec95fd" name="Changes" comment="end Tragil1">
+      <change afterPath="$PROJECT_DIR$/Targil1/src/findFiles.groovy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Targil1/src/Main.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/Targil1/src/Main.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/PointerTest/PointerTest.asm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/PointerTest/PointerTest.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/StaticTest/StaticTest.asm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/StaticTest/StaticTest.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/StackTest/StackTest.asm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/StackTest/StackTest.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/tools/bin/CPU Emulator.dat" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/tools/bin/CPU Emulator.dat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,18 +21,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "arielaamm"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;arielaamm&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/arielaamm/nand2tetris",
-    "accountId": "6bef7510-3128-4502-b959-47428ab60405"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/arielaamm/nand2tetris&quot;,
+    &quot;accountId&quot;: &quot;6bef7510-3128-4502-b959-47428ab60405&quot;
   }
-}]]></component>
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -38,7 +47,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Groovy.Main.executor": "Run",
+    "Groovy.Main.executor": "Debug",
+    "Groovy.findFiles.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
@@ -49,6 +59,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "vcs.Git",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -73,6 +84,12 @@
       <workItem from="1716410215718" duration="336000" />
       <workItem from="1716410601129" duration="514000" />
       <workItem from="1716411422242" duration="458000" />
+      <workItem from="1716411942016" duration="1029000" />
+      <workItem from="1717005459190" duration="1379000" />
+      <workItem from="1717007429893" duration="638000" />
+      <workItem from="1717083684055" duration="605000" />
+      <workItem from="1717329253310" duration="96000" />
+      <workItem from="1717340731978" duration="5013000" />
     </task>
     <task id="LOCAL‎-00001" summary="end Tragil1">
       <option name="closed" value="true" />
@@ -90,14 +107,65 @@
       <option name="project" value="LOCAL‎" />
       <updated>1716411667292</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL‎-00003" summary="end Tragil1">
+      <option name="closed" value="true" />
+      <created>1716412216511</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL‎-00003" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1716412216511</updated>
+    </task>
+    <task id="LOCAL‎-00004" summary="end Tragil1">
+      <option name="closed" value="true" />
+      <created>1716412348702</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL‎-00004" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1716412348702</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="end Tragil1" />
     <option name="LAST_COMMIT_MESSAGE" value="end Tragil1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="groovy.lang.MissingMethodException" package="groovy.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.io.FileNotFoundException" package="java.io" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Targil1/src/Main.groovy</url>
+          <line>445</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="GroovyScriptRunConfiguration">
+        <watch expression="folder" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

@@ -1,4 +1,21 @@
-def path = "C:\\Users\\arial\\groovy\\nand2tetris\\projects\\07\\MemoryAccess\\StaticTest\\"
+import javax.swing.JFileChooser
+
+public class FileUtils {
+  def String chooseFile(){
+    def initialDirectory = new File("C:\\Users\\arial\\groovy\\nand2tetris\\projects")
+    def fileChooser = new JFileChooser(initialDirectory)
+    fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY)
+    int returnValue = fileChooser.showOpenDialog(null)
+
+    if (returnValue == JFileChooser.APPROVE_OPTION) {
+      def directory = fileChooser.getSelectedFile()
+      return directory.absolutePath
+    }
+  }
+}
+
+FileUtils fileUtils = new FileUtils()
+def path = fileUtils.chooseFile()
 def folder = new File(path)
 def outputFile = new File("${folder.path}/${folder.name}.asm").newWriter()
 String buffer = ""
@@ -48,8 +65,27 @@ folder.eachFile { file ->
           case "not":
             buffer += not()
             break
-
+          case "label":
+            buffer += label(parts)
+            break
+          case "if-goto":
+            buffer += ifGoto(parts)
+            break
+          case "function":
+            buffer += function(parts)
+            break
+          case "call":
+            buffer += callF(parts,counter)
+            counter++
+            break
+          case "return":
+            buffer += returnF()
+            break
+          case "goto":
+            buffer += gotoF(parts)
+            break
         }
+        buffer += "\n"
       }
       else
         return
@@ -384,4 +420,125 @@ def String not() {
   return "@SP\n" +
           "A=M-1\n" +
           "M=!M\n"
+}
+
+def String label(String[] strings) {
+  return "(${strings[1]})\n"
+}
+
+def String ifGoto(String[] strings) {
+  return "@SP\n" +
+          "M=M-1\n" +
+          "A=M\n" +
+          "D=M\n" +
+          "@${strings[1]}\n" +
+          "D;JNE\n"
+}
+
+def String gotoF(String[] strings) {
+  return "@${strings[1]}\n" +
+          "0;JMP\n"
+}
+
+def String function(String[] strings) {
+  def str =  "(${strings[1]})\n"
+  def line = "push constant 0"
+  def parts = line.split(" ")
+  for (int i = 0; i < strings[2].toInteger(); i++) {
+    str += push(parts,strings[1])
+  }
+  return str
+}
+
+def String callF(String[] strings,int counter) {
+  //push return address , LCL, ARG, THIS, THAT
+  def str_c =  "D=A\n" +
+          "@SP\n" +
+          "M=M+1\n" +
+          "A=M-1\n" +
+          "M=D\n" +
+          "M=M+1\n"
+  def str = "@returnAddress${counter}\n" + str_c
+  str += "@LCL\n" + str_c
+  str += "@ARG\n" + str_c
+  str += "@THIS\n" + str_c
+  str += "@THAT\n" + str_c
+
+  // update pointers
+  str += "@5\n" +
+          "D=A\n" +
+          "@${strings[2]}\n" +
+          "D=D+A\n" +
+          "@SP\n" +
+          "D=M-D\n" +
+          "@ARG\n" +
+          "M=D\n"
+  // goto function
+  str += "@${strings[1]}\n" +
+          "0;JMP\n"
+  // return address
+  str += "(returnAddress${counter})\n"
+
+  return str
+}
+
+def String returnF() {
+  // save the return address
+  def str = "@LCL\n" +
+          "D=M\n" +
+          "@13\n" +
+          "M=D\n" +
+          "@5\n" +
+          "D=A\n" +
+          "@13\n" +
+          "A=M-D\n" +
+          "D=M\n" +
+          "@14\n" +
+          "M=D\n"
+  // pop the return value
+  str += "@SP\n" +
+          "M=M-1\n" +
+          "A=M\n" +
+          "D=M\n" +
+          "@ARG\n" +
+          "A=M\n" +
+          "M=D\n" +
+          "@ARG\n" +
+          "D=M+1\n" +
+          "@SP\n" +
+          "M=D\n"
+  // update pointers
+  str += "@13\n" +
+          "A=M-1\n" +
+          "D=M\n" +
+          "@THAT\n" +
+          "M=D\n" +
+          "@2\n" +
+          "D=A\n" +
+          "@13\n" +
+          "A=M-D\n" +
+          "D=M\n" +
+          "@THIS\n" +
+          "M=D\n"
+
+  str += "@3\n" +
+          "D=A\n" +
+          "@13\n" +
+          "A=M-D\n" +
+          "D=M\n" +
+          "@ARG\n" +
+          "M=D\n"
+
+  str += "@4\n" +
+          "D=A\n" +
+          "@13\n" +
+          "A=M-D\n" +
+          "D=M\n" +
+          "@LCL\n" +
+          "M=D\n"
+  // goto return address
+  str += "@14\n" +
+          "A=M\n" +
+          "0;JMP\n"
+  return str
 }
