@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc1f39bb-9342-46cd-8d10-b2c1dbec95fd" name="Changes" comment="end Tragil1">
-      <change afterPath="$PROJECT_DIR$/Targil1/src/findFiles.groovy" afterDir="false" />
+    <list default="true" id="dc1f39bb-9342-46cd-8d10-b2c1dbec95fd" name="Changes" comment="end Tragil2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Targil1/src/Main.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/Targil1/src/Main.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/PointerTest/PointerTest.asm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/PointerTest/PointerTest.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/StaticTest/StaticTest.asm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/StaticTest/StaticTest.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/StackTest/StackTest.asm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/StackTest/StackTest.asm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nand2tetris/tools/bin/CPU Emulator.dat" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/tools/bin/CPU Emulator.dat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,24 +41,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Groovy.Main.executor": "Debug",
-    "Groovy.findFiles.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/arial/groovy",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "vcs.Git",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Groovy.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Groovy.findFiles.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/arial/groovy&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -89,7 +85,10 @@
       <workItem from="1717007429893" duration="638000" />
       <workItem from="1717083684055" duration="605000" />
       <workItem from="1717329253310" duration="96000" />
-      <workItem from="1717340731978" duration="5013000" />
+      <workItem from="1717340731978" duration="5234000" />
+      <workItem from="1717346082630" duration="141000" />
+      <workItem from="1717513241024" duration="3000" />
+      <workItem from="1717944694097" duration="6408000" />
     </task>
     <task id="LOCAL‎-00001" summary="end Tragil1">
       <option name="closed" value="true" />
@@ -123,7 +122,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1716412348702</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL‎-00005" summary="end Tragil2">
+      <option name="closed" value="true" />
+      <created>1717346003598</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL‎-00005" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1717346003598</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,7 +149,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="end Tragil1" />
-    <option name="LAST_COMMIT_MESSAGE" value="end Tragil1" />
+    <MESSAGE value="end Tragil2" />
+    <option name="LAST_COMMIT_MESSAGE" value="end Tragil2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -155,11 +163,6 @@
           <properties class="java.io.FileNotFoundException" package="java.io" />
           <option name="timeStamp" value="2" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Targil1/src/Main.groovy</url>
-          <line>445</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>

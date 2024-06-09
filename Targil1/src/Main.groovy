@@ -20,7 +20,29 @@ def folder = new File(path)
 def outputFile = new File("${folder.path}/${folder.name}.asm").newWriter()
 String buffer = ""
 int counter = 0
+def vmFiles = folder.listFiles().findAll { it.name.endsWith('.vm') }
 
+if (folder.listFiles().name.contains("Sys.vm") && vmFiles.size() <= 2)
+{
+  buffer = "@256\n" +
+           "D=A\n" +
+           "@SP\n" +
+           "M=D\n"
+  def line = "call Sys.int 0"
+  buffer += callF(line.split(" "),counter)
+  counter++
+  buffer += "@Sys.init\n" +
+           "0;JMP\n"
+}
+if (folder.listFiles().name.contains("Sys.vm") && vmFiles.size() == 1)
+        {
+          buffer = "@261\n" +
+                  "D=A\n" +
+                  "@SP\n" +
+                  "M=D\n" +
+                  "@Sys.init\n" +
+                  "0;JMP\n"
+        }
 folder.eachFile { file ->
   if (file.name.endsWith(".vm")) {
     file.eachLine { line ->
@@ -441,44 +463,73 @@ def String gotoF(String[] strings) {
 }
 
 def String function(String[] strings) {
-  def str =  "(${strings[1]})\n"
-  def line = "push constant 0"
-  def parts = line.split(" ")
-  for (int i = 0; i < strings[2].toInteger(); i++) {
-    str += push(parts,strings[1])
-  }
+  def str = "(${strings[1]})\n" +
+          "@${strings[1]}.local\n" +
+          "M=0\n" +
+          "(${strings[1]}.loc_loop)\n" +
+          "@${strings[2]}\n" +
+          "D=A\n" +
+          "@${strings[1]}.local\n" +
+          "D=D-M\n" +
+          "@${strings[1]}.end_loc_loop\n" +
+          "D;JEQ\n" +
+          "@SP\n" +
+          "M=M+1\n" +
+          "A=M-1\n" +
+          "M=0\n" +
+          "@${strings[1]}.local\n" +
+          "M=M+1\n" +
+          "@${strings[1]}.loc_loop\n" +
+          "0;JMP\n" +
+          "(${strings[1]}.end_loc_loop)\n"
   return str
 }
 
 def String callF(String[] strings,int counter) {
-  //push return address , LCL, ARG, THIS, THAT
-  def str_c =  "D=A\n" +
+  def str = "@${strings[1]}.return${counter}\n" +
+          "D=A\n" +
           "@SP\n" +
           "M=M+1\n" +
           "A=M-1\n" +
           "M=D\n" +
-          "M=M+1\n"
-  def str = "@returnAddress${counter}\n" + str_c
-  str += "@LCL\n" + str_c
-  str += "@ARG\n" + str_c
-  str += "@THIS\n" + str_c
-  str += "@THAT\n" + str_c
-
-  // update pointers
-  str += "@5\n" +
-          "D=A\n" +
-          "@${strings[2]}\n" +
-          "D=D+A\n" +
+          "@LCL\n" +
+          "D=M\n" +
           "@SP\n" +
-          "D=M-D\n" +
+          "M=M+1\n" +
+          "A=M-1\n" +
+          "M=D\n" +
           "@ARG\n" +
-          "M=D\n"
-  // goto function
-  str += "@${strings[1]}\n" +
+          "D=M\n" +
+          "@SP\n" +
+          "M=M+1\n" +
+          "A=M-1\n" +
+          "M=D\n" +
+          "@THIS\n" +
+          "D=M\n" +
+          "@SP\n" +
+          "M=M+1\n" +
+          "A=M-1\n" +
+          "M=D\n" +
+          "@THAT\n" +
+          "D=M\n" +
+          "@SP\n" +
+          "M=M+1\n" +
+          "A=M-1\n" +
+          "M=D\n" +
+          "D=A+1\n"
+  int temp = 5 + strings[2].toInteger()
+  str +=  "@${temp}\n" +
+          "D=D-A\n" +
+          "@ARG\n" +
+          "M=D\n" +
+          "@SP\n" +
+          "D=M\n" +
+          "@LCL\n" +
+          "M=D\n" +
+          "@${strings[1]}\n" +
           "0;JMP\n"
-  // return address
-  str += "(returnAddress${counter})\n"
-
+  def temp1 =  "${strings[1]}.return${counter}"
+  str += "("+ temp1 + ")\n"
   return str
 }
 
@@ -486,58 +537,48 @@ def String returnF() {
   // save the return address
   def str = "@LCL\n" +
           "D=M\n" +
+          "@5\n" +
+          "A=D-A\n" +
+          "D=M\n" +
           "@13\n" +
           "M=D\n" +
-          "@5\n" +
-          "D=A\n" +
-          "@13\n" +
-          "A=M-D\n" +
+          "@SP\n" +
+          "M=M-1\n" +
+          "A=M\n"+
           "D=M\n" +
-          "@14\n" +
+          "@ARG\n" +
+          "A=M\n" +
           "M=D\n"
   // pop the return value
-  str += "@SP\n" +
+  str += "@ARG\n" +
+          "D=M\n" +
+          "@SP\n" +
+          "M=D+1\n" +
+          "@LCL\n" +
+          "M=M-1\n" +
+          "A=M\n" +
+          "D=M\n" +
+          "@THAT\n" +
+          "M=D\n" +
+          "@LCL\n" +
+          "M=M-1\n" +
+          "A=M\n" +
+          "D=M\n" +
+          "@THIS\n" +
+          "M=D\n" +
+          "@LCL\n" +
           "M=M-1\n" +
           "A=M\n" +
           "D=M\n" +
           "@ARG\n" +
+          "M=D\n" +
+          "@LCL\n" +
+          "M=M-1\n" +
           "A=M\n" +
-          "M=D\n" +
-          "@ARG\n" +
-          "D=M+1\n" +
-          "@SP\n" +
-          "M=D\n"
-  // update pointers
-  str += "@13\n" +
-          "A=M-1\n" +
-          "D=M\n" +
-          "@THAT\n" +
-          "M=D\n" +
-          "@2\n" +
-          "D=A\n" +
-          "@13\n" +
-          "A=M-D\n" +
-          "D=M\n" +
-          "@THIS\n" +
-          "M=D\n"
-
-  str += "@3\n" +
-          "D=A\n" +
-          "@13\n" +
-          "A=M-D\n" +
-          "D=M\n" +
-          "@ARG\n" +
-          "M=D\n"
-
-  str += "@4\n" +
-          "D=A\n" +
-          "@13\n" +
-          "A=M-D\n" +
           "D=M\n" +
           "@LCL\n" +
-          "M=D\n"
-  // goto return address
-  str += "@14\n" +
+          "M=D\n" +
+          "@13\n" +
           "A=M\n" +
           "0;JMP\n"
   return str
