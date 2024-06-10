@@ -20,29 +20,29 @@ def folder = new File(path)
 def outputFile = new File("${folder.path}/${folder.name}.asm").newWriter()
 String buffer = ""
 int counter = 0
-def vmFiles = folder.listFiles().findAll { it.name.endsWith('.vm') }
-
-if (folder.listFiles().name.contains("Sys.vm") && vmFiles.size() <= 2)
-{
-  buffer = "@256\n" +
-           "D=A\n" +
-           "@SP\n" +
-           "M=D\n"
-  def line = "call Sys.int 0"
-  buffer += callF(line.split(" "),counter)
-  counter++
-  buffer += "@Sys.init\n" +
-           "0;JMP\n"
-}
-if (folder.listFiles().name.contains("Sys.vm") && vmFiles.size() == 1)
-        {
-          buffer = "@261\n" +
-                  "D=A\n" +
-                  "@SP\n" +
-                  "M=D\n" +
-                  "@Sys.init\n" +
-                  "0;JMP\n"
-        }
+//def vmFiles = folder.listFiles().findAll { it.name.endsWith('.vm') }
+//
+//if (folder.listFiles().name.contains("Sys.vm") && vmFiles.size() <= 2)
+//{
+//  buffer = "@256\n" +
+//           "D=A\n" +
+//           "@SP\n" +
+//           "M=D\n"
+//  def line = "call Sys.int 0"
+//  buffer += callF(line.split(" "),counter)
+//  counter++
+//  buffer += "@Sys.init\n" +
+//           "0;JMP\n"
+//}
+//if (folder.listFiles().name.contains("Sys.vm") && vmFiles.size() == 1)
+//        {
+//          buffer = "@261\n" +
+//                  "D=A\n" +
+//                  "@SP\n" +
+//                  "M=D\n" +
+//                  "@Sys.init\n" +
+//                  "0;JMP\n"
+//        }
 folder.eachFile { file ->
   if (file.name.endsWith(".vm")) {
     file.eachLine { line ->
@@ -105,6 +105,9 @@ folder.eachFile { file ->
             break
           case "goto":
             buffer += gotoF(parts)
+            break
+          case "#and":
+            buffer += and_new(parts)
             break
         }
         buffer += "\n"
@@ -581,5 +584,19 @@ def String returnF() {
           "@13\n" +
           "A=M\n" +
           "0;JMP\n"
+  return str
+}
+
+def String and_new(String[] strings) {
+  def str = "@SP\n" +
+          "A=M-1\n" +
+          "D=M\n" +
+          "A=A-1\n" +
+          "M=D&M\n" +
+          "@SP\n" +
+          "M=M-1\n" +
+          "@SP\n" +
+          "A=M-1\n" +
+          "M=!M\n"
   return str
 }

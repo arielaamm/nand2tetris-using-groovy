@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc1f39bb-9342-46cd-8d10-b2c1dbec95fd" name="Changes" comment="end Tragil2">
+    <list default="true" id="dc1f39bb-9342-46cd-8d10-b2c1dbec95fd" name="Changes" comment="Tragil2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Targil1/src/Main.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/Targil1/src/Main.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/BasicTest/BasicTest.asm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/BasicTest/BasicTest.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/PointerTest/PointerTest.asm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/PointerTest/PointerTest.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/StaticTest/StaticTest.asm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/StaticTest/StaticTest.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.asm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.cmp" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.cmp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.out" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.vm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.vm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/StackTest/StackTest.asm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/StackTest/StackTest.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/StackTest/StackTest.out" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/StackTest/StackTest.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nand2tetris/tools/bin/CPU Emulator.dat" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/tools/bin/CPU Emulator.dat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,6 +64,9 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -88,7 +100,9 @@
       <workItem from="1717340731978" duration="5234000" />
       <workItem from="1717346082630" duration="141000" />
       <workItem from="1717513241024" duration="3000" />
-      <workItem from="1717944694097" duration="6408000" />
+      <workItem from="1717944694097" duration="6948000" />
+      <workItem from="1717953701011" duration="19000" />
+      <workItem from="1718036504815" duration="1876000" />
     </task>
     <task id="LOCAL‎-00001" summary="end Tragil1">
       <option name="closed" value="true" />
@@ -130,7 +144,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1717346003598</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL‎-00006" summary="Tragil2">
+      <option name="closed" value="true" />
+      <created>1717951153328</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL‎-00006" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1717951153328</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,7 +172,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="end Tragil1" />
     <MESSAGE value="end Tragil2" />
-    <option name="LAST_COMMIT_MESSAGE" value="end Tragil2" />
+    <MESSAGE value="Tragil2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tragil2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
