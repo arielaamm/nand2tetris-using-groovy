@@ -22,27 +22,17 @@ String buffer = ""
 int counter = 0
 def vmFiles = folder.listFiles().findAll { it.name.endsWith('.vm') }
 
-if (vmFiles.size() >=2)
-{
+if (vmFiles.size() >=2) {
   buffer = "@256\n" +
           "D=A\n" +
           "@SP\n" +
           "M=D\n"
   def line = "call Sys.init 0"
-  buffer += callF(line.split(" "),counter)
+  buffer += callF(line.split(" "), counter)
   counter++
   buffer += "@Sys.init\n" +
           "0;JMP\n"
 }
-//if (folder.listFiles().name.contains("Sys.vm") && vmFiles.size() == 1)
-//        {
-//          buffer = "@261\n" +
-//                  "D=A\n" +
-//                  "@SP\n" +
-//                  "M=D\n" +
-//                  "@Sys.init\n" +
-//                  "0;JMP\n"
-//        }
 folder.eachFile { file ->
   if (file.name.endsWith(".vm")) {
     file.eachLine { line ->

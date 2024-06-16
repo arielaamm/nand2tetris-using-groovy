@@ -1,0 +1,291 @@
+Index: nand2tetris/projects/07/MemoryAccess/StaticTest/StaticTest.asm
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@111\r\nD=A\r\n@SP\r\nA=M\r\nM=D\r\n@SP\r\nM=M+1\r\n@333\r\nD=A\r\n@SP\r\nA=M\r\nM=D\r\n@SP\r\nM=M+1\r\n@888\r\nD=A\r\n@SP\r\nA=M\r\nM=D\r\n@SP\r\nM=M+1\r\n@SP\r\nM=M-1\r\nA=M\r\nD=M\r\n@24\r\nM=D\r\n@SP\r\nM=M-1\r\nA=M\r\nD=M\r\n@19\r\nM=D\r\n@SP\r\nM=M-1\r\nA=M\r\nD=M\r\n@17\r\nM=D\r\n@19\r\nD=M\r\n@SP\r\nA=M\r\nM=D\r\n@SP\r\nM=M+1\r\n@17\r\nD=M\r\n@SP\r\nA=M\r\nM=D\r\n@SP\r\nM=M+1\r\n@SP\r\nA=M-1\r\nD=M\r\nA=A-1\r\nM=M-D\r\n@SP\r\nM=M-1\r\n@24\r\nD=M\r\n@SP\r\nA=M\r\nM=D\r\n@SP\r\nM=M+1\r\n@SP\r\nA=M-1\r\nD=M\r\nA=A-1\r\nM=M+D\r\n@SP\r\nM=M-1\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/nand2tetris/projects/07/MemoryAccess/StaticTest/StaticTest.asm b/nand2tetris/projects/07/MemoryAccess/StaticTest/StaticTest.asm
+--- a/nand2tetris/projects/07/MemoryAccess/StaticTest/StaticTest.asm	
++++ b/nand2tetris/projects/07/MemoryAccess/StaticTest/StaticTest.asm	
+@@ -1,3 +1,4 @@
++
+ @111
+ D=A
+ @SP
+@@ -5,6 +6,7 @@
+ M=D
+ @SP
+ M=M+1
++
+ @333
+ D=A
+ @SP
+@@ -12,6 +14,7 @@
+ M=D
+ @SP
+ M=M+1
++
+ @888
+ D=A
+ @SP
+@@ -19,38 +22,44 @@
+ M=D
+ @SP
+ M=M+1
++
+ @SP
+ M=M-1
+ A=M
+ D=M
+-@24
++@StaticTest.8
+ M=D
++
+ @SP
+ M=M-1
+ A=M
+ D=M
+-@19
++@StaticTest.3
+ M=D
++
+ @SP
+ M=M-1
+ A=M
+ D=M
+-@17
++@StaticTest.1
+ M=D
+-@19
++
++@StaticTest.3
+ D=M
+ @SP
+ A=M
+ M=D
+ @SP
+ M=M+1
+-@17
++
++@StaticTest.1
+ D=M
+ @SP
+ A=M
+ M=D
+ @SP
+ M=M+1
++
+ @SP
+ A=M-1
+ D=M
+@@ -58,13 +67,15 @@
+ M=M-D
+ @SP
+ M=M-1
+-@24
++
++@StaticTest.8
+ D=M
+ @SP
+ A=M
+ M=D
+ @SP
+ M=M+1
++
+ @SP
+ A=M-1
+ D=M
+@@ -72,3 +83,4 @@
+ M=M+D
+ @SP
+ M=M-1
++
+Index: Targil1/src/Main.groovy
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import javax.swing.JFileChooser\r\n\r\npublic class FileUtils {\r\n  def String chooseFile(){\r\n    def initialDirectory = new File(\"C:\\\\Users\\\\arial\\\\groovy\\\\nand2tetris\\\\projects\")\r\n    def fileChooser = new JFileChooser(initialDirectory)\r\n    fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY)\r\n    int returnValue = fileChooser.showOpenDialog(null)\r\n\r\n    if (returnValue == JFileChooser.APPROVE_OPTION) {\r\n      def directory = fileChooser.getSelectedFile()\r\n      return directory.absolutePath\r\n    }\r\n  }\r\n}\r\n\r\nFileUtils fileUtils = new FileUtils()\r\ndef path = fileUtils.chooseFile()\r\ndef folder = new File(path)\r\ndef outputFile = new File(\"${folder.path}/${folder.name}.asm\").newWriter()\r\nString buffer = \"\"\r\nint counter = 0\r\ndef vmFiles = folder.listFiles().findAll { it.name.endsWith('.vm') }\r\n\r\nif (folder.listFiles().name.contains(\"Sys.vm\") && vmFiles.size() <= 2)\r\n{\r\n  buffer = \"@256\\n\" +\r\n           \"D=A\\n\" +\r\n           \"@SP\\n\" +\r\n           \"M=D\\n\"\r\n  def line = \"call Sys.int 0\"\r\n  buffer += callF(line.split(\" \"),counter)\r\n  counter++\r\n  buffer += \"@Sys.init\\n\" +\r\n           \"0;JMP\\n\"\r\n}\r\nif (folder.listFiles().name.contains(\"Sys.vm\") && vmFiles.size() == 1)\r\n        {\r\n          buffer = \"@261\\n\" +\r\n                  \"D=A\\n\" +\r\n                  \"@SP\\n\" +\r\n                  \"M=D\\n\" +\r\n                  \"@Sys.init\\n\" +\r\n                  \"0;JMP\\n\"\r\n        }\r\nfolder.eachFile { file ->\r\n  if (file.name.endsWith(\".vm\")) {\r\n    file.eachLine { line ->\r\n      if(!line.startsWith(\"//\")) {\r\n        def parts = line.split(\" \")\r\n        def operation = parts[0]\r\n        switch(operation) {\r\n          case \"push\":\r\n            buffer += push(parts,file.name - \".vm\")\r\n            break\r\n          case \"add\":\r\n            buffer += add()\r\n            break\r\n          case \"sub\":\r\n            buffer += sub()\r\n            break\r\n          case \"pop\":\r\n            buffer += pop(parts,file.name - \".vm\")\r\n            counter++\r\n            break\r\n          case \"neg\":\r\n            buffer += neg()\r\n            break\r\n          case \"eq\":\r\n            buffer += eq(counter)\r\n            counter++\r\n            break\r\n          case \"gt\":\r\n            buffer += gt(counter)\r\n            counter++\r\n            break\r\n          case \"lt\":\r\n            buffer += lt(counter)\r\n            counter++\r\n            break\r\n          case \"and\":\r\n            buffer += and()\r\n            break\r\n          case \"or\":\r\n            buffer += or()\r\n            break\r\n          case \"not\":\r\n            buffer += not()\r\n            break\r\n          case \"label\":\r\n            buffer += label(parts)\r\n            break\r\n          case \"if-goto\":\r\n            buffer += ifGoto(parts)\r\n            break\r\n          case \"function\":\r\n            buffer += function(parts)\r\n            break\r\n          case \"call\":\r\n            buffer += callF(parts,counter)\r\n            counter++\r\n            break\r\n          case \"return\":\r\n            buffer += returnF()\r\n            break\r\n          case \"goto\":\r\n            buffer += gotoF(parts)\r\n            break\r\n        }\r\n        buffer += \"\\n\"\r\n      }\r\n      else\r\n        return\r\n    }\r\n  }\r\n}\r\n\r\n\r\noutputFile << buffer\r\noutputFile.close()\r\n\r\n\r\ndef String push(String[] strings,String name) {\r\n  def str = \"\"\r\n  switch (strings[1]) {\r\n  //grope 5\r\n    case \"constant\":\r\n      return  \"@${strings[2]}\\n\" +\r\n              \"D=A\\n\" +\r\n              \"@SP\\n\" +\r\n              \"A=M\\n\" +\r\n              \"M=D\\n\" +\r\n              \"@SP\\n\" +\r\n              \"M=M+1\\n\"\r\n      //grope 1\r\n    case \"local\":\r\n      str +=  \"@${strings[2]}\\n\" +\r\n              \"D=A\\n\" +\r\n              \"@LCL\\n\" +\r\n              \"A=M+D\\n\" +\r\n              \"D=M\\n\" +\r\n              \"@SP\\n\" +\r\n              \"A=M\\n\" +\r\n              \"M=D\\n\" +\r\n              \"@SP\\n\" +\r\n              \"M=M+1\\n\"\r\n\r\n      break\r\n    case \"argument\":\r\n      str +=  \"@${strings[2]}\\n\" +\r\n              \"D=A\\n\" +\r\n              \"@ARG\\n\" +\r\n              \"A=M+D\\n\" +\r\n              \"D=M\\n\" +\r\n              \"@SP\\n\" +\r\n              \"A=M\\n\" +\r\n              \"M=D\\n\" +\r\n              \"@SP\\n\" +\r\n              \"M=M+1\\n\"\r\n      break\r\n    case \"this\":\r\n      str +=  \"@${strings[2]}\\n\" +\r\n              \"D=A\\n\" +\r\n              \"@THIS\\n\" +\r\n              \"A=M+D\\n\" +\r\n              \"D=M\\n\" +\r\n              \"@SP\\n\" +\r\n              \"A=M\\n\" +\r\n              \"M=D\\n\" +\r\n              \"@SP\\n\" +\r\n              \"M=M+1\\n\"\r\n      break\r\n    case \"that\":\r\n      str +=  \"@${strings[2]}\\n\" +\r\n              \"D=A\\n\" +\r\n              \"@THAT\\n\" +\r\n              \"A=M+D\\n\" +\r\n              \"D=M\\n\" +\r\n              \"@SP\\n\" +\r\n              \"A=M\\n\" +\r\n              \"M=D\\n\" +\r\n              \"@SP\\n\" +\r\n              \"M=M+1\\n\"\r\n      break\r\n    case \"temp\":\r\n      int temp = 5 + strings[2].toInteger()\r\n      str += \"@${temp}\\n\" +\r\n              \"D=M\\n\" +\r\n              \"@SP\\n\" +\r\n              \"A=M\\n\" +\r\n              \"M=D\\n\" +\r\n              \"@SP\\n\" +\r\n              \"M=M+1\\n\"\r\n      break\r\n    case \"pointer\":\r\n      if (strings[2] == \"0\") {\r\n        str +=  \"@THIS\\n\" +\r\n                \"D=M\\n\" +\r\n                \"@SP\\n\" +\r\n                \"A=M\\n\" +\r\n                \"M=D\\n\" +\r\n                \"@SP\\n\" +\r\n                \"M=M+1\\n\"\r\n      }\r\n      else if (strings[2] == \"1\") {\r\n        str +=  \"@THAT\\n\" +\r\n                \"D=M\\n\" +\r\n                \"@SP\\n\" +\r\n                \"A=M\\n\" +\r\n                \"M=D\\n\" +\r\n                \"@SP\\n\" +\r\n                \"M=M+1\\n\"\r\n      }\r\n      break\r\n    case \"static\":\r\n      str =   \"@${16 + strings[2].toInteger()}\\n\" +\r\n              \"D=M\\n\" +\r\n              \"@SP\\n\" +\r\n              \"A=M\\n\" +\r\n              \"M=D\\n\" +\r\n              \"@SP\\n\" +\r\n              \"M=M+1\\n\"\r\n      break\r\n  }\r\n  return str\r\n}\r\n\r\ndef String add() {\r\n  return \"@SP\\n\" +\r\n          \"A=M-1\\n\" +\r\n          \"D=M\\n\" +\r\n          \"A=A-1\\n\" +\r\n          \"M=M+D\\n\" +\r\n          \"@SP\\n\" +\r\n          \"M=M-1\\n\"\r\n}\r\n\r\ndef String sub() {\r\n  return \"@SP\\n\" +\r\n          \"A=M-1\\n\" +\r\n          \"D=M\\n\" +\r\n          \"A=A-1\\n\" +\r\n          \"M=M-D\\n\" +\r\n          \"@SP\\n\" +\r\n          \"M=M-1\\n\"\r\n}\r\n\r\ndef String pop(String[] strings,String name) {\r\n  def str = \"\"\r\n  switch (strings[1]) {\r\n  //grope 1\r\n    case \"local\":\r\n      str +=  \"@SP\\n\" +\r\n              \"A=M-1\\n\" +\r\n              \"D=M\\n\" +\r\n              \"@LCL\\n\" +\r\n              \"A=M\\n\"\r\n      for (int i = 0; i < strings[2].toInteger(); i++) {\r\n        str += \"A=A+1\\n\"\r\n      }\r\n      str += \"M=D\\n\" +\r\n              \"@SP\\n\" +\r\n              \"M=M-1\\n\"\r\n      break\r\n    case \"argument\":\r\n      str +=  \"@SP\\n\" +\r\n              \"A=M-1\\n\" +\r\n              \"D=M\\n\" +\r\n              \"@ARG\\n\" +\r\n              \"A=M\\n\"\r\n      for (int i = 0; i < strings[2].toInteger(); i++) {\r\n        str += \"A=A+1\\n\"\r\n      }\r\n      str += \"M=D\\n\" +\r\n              \"@SP\\n\" +\r\n              \"M=M-1\\n\"\r\n      break\r\n    case \"this\":\r\n      str +=  \"@SP\\n\" +\r\n              \"A=M-1\\n\" +\r\n              \"D=M\\n\" +\r\n              \"@THIS\\n\" +\r\n              \"A=M\\n\"\r\n      for (int i = 0; i < strings[2].toInteger(); i++) {\r\n        str += \"A=A+1\\n\"\r\n      }\r\n      str += \"M=D\\n\" +\r\n              \"@SP\\n\" +\r\n              \"M=M-1\\n\"\r\n      break\r\n    case \"that\":\r\n      str +=  \"@SP\\n\" +\r\n              \"A=M-1\\n\" +\r\n              \"D=M\\n\" +\r\n              \"@THAT\\n\" +\r\n              \"A=M\\n\"\r\n      for (int i = 0; i < strings[2].toInteger(); i++) {\r\n        str += \"A=A+1\\n\"\r\n      }\r\n      str += \"M=D\\n\" +\r\n              \"@SP\\n\" +\r\n              \"M=M-1\\n\"\r\n      break\r\n    case \"temp\":\r\n      str +=  \"@SP\\n\" +\r\n              \"A=M-1\\n\" +\r\n              \"D=M\\n\"\r\n      int temp = 5 + strings[2].toInteger()\r\n      str +=  \"@${temp}\\n\" +\r\n              \"M=D\\n\" +\r\n              \"@SP\\n\" +\r\n              \"M=M-1\\n\"\r\n      break\r\n    case \"pointer\":\r\n      if (strings[2] == \"0\") {\r\n        str +=  \"@SP\\n\" +\r\n                \"A=M-1\\n\" +\r\n                \"D=M\\n\" +\r\n                \"@THIS\\n\" +\r\n                \"M=D\\n\"+\r\n                \"@SP\\n\" +\r\n                \"M=M-1\\n\"\r\n      }\r\n      else if (strings[2] == \"1\") {\r\n        str +=  \"@SP\\n\" +\r\n                \"A=M-1\\n\" +\r\n                \"D=M\\n\" +\r\n                \"@THAT\\n\" +\r\n                \"M=D\\n\"+\r\n                \"@SP\\n\" +\r\n                \"M=M-1\\n\"\r\n      }\r\n      break\r\n    case \"static\":\r\n      str =   \"@SP\\n\" +\r\n              \"M=M-1\\n\" +\r\n              \"A=M\\n\" +\r\n              \"D=M\\n\"\r\n      def temp = 16 + strings[2].toInteger()\r\n      str += \"@${temp}\\n\" +\r\n              \"M=D\\n\"\r\n      break\r\n  }\r\n  return str\r\n}\r\n\r\ndef String or() {\r\n  return \"@SP\\n\" +\r\n          \"A=M-1\\n\" +\r\n          \"D=M\\n\" +\r\n          \"A=A-1\\n\" +\r\n          \"M=M|D\\n\" +\r\n          \"@SP\\n\" +\r\n          \"M=M-1\\n\"\r\n}\r\n\r\ndef String neg() {\r\n  return \"@SP\\n\" +\r\n          \"A=M-1\\n\" +\r\n          \"M=-M\\n\"\r\n}\r\n\r\ndef String and() {\r\n  return \"@SP\\n\" +\r\n          \"A=M-1\\n\" +\r\n          \"D=M\\n\" +\r\n          \"A=A-1\\n\" +\r\n          \"M=M&D\\n\" +\r\n          \"@SP\\n\" +\r\n          \"M=M-1\\n\"\r\n}\r\n\r\ndef String eq(int counter) {\r\n  return \"@SP\\n\" +\r\n          \"A=M-1\\n\" +\r\n          \"D=M\\n\" +\r\n          \"A=A-1\\n\" +\r\n          \"D=D-M\\n\" +\r\n          \"@IF_TRUE${counter}\\n\" +\r\n          \"D;JEQ\\n\" +\r\n          \"D=0\\n\" +\r\n          \"@IF_FALSE${counter}\\n\" +\r\n          \"0;JMP\\n\" +\r\n          \"(IF_TRUE${counter})\\n\" +\r\n          \"D=-1\\n\" +\r\n          \"(IF_FALSE${counter})\\n\" +\r\n          \"@SP\\n\" +\r\n          \"A=M-1\\n\" +\r\n          \"A=A-1\\n\" +\r\n          \"M=D\\n\" +\r\n          \"@SP\\n\" +\r\n          \"M=M-1\\n\"\r\n\r\n\r\n}\r\n\r\ndef String lt(int counter) {\r\n  return \"@SP\\n\" +\r\n          \"A=M-1\\n\" +\r\n          \"D=M\\n\" +\r\n          \"A=A-1\\n\" +\r\n          \"D=M-D\\n\" +\r\n          \"@IF_TRUE${counter}\\n\" +\r\n          \"D;JLT\\n\" +\r\n          \"D=0\\n\" +\r\n          \"@IF_FALSE${counter}\\n\" +\r\n          \"0;JMP\\n\" +\r\n          \"(IF_TRUE${counter})\\n\" +\r\n          \"D=-1\\n\" +\r\n          \"(IF_FALSE${counter})\\n\" +\r\n          \"@SP\\n\" +\r\n          \"A=M-1\\n\" +\r\n          \"A=A-1\\n\" +\r\n          \"M=D\\n\" +\r\n          \"@SP\\n\" +\r\n          \"M=M-1\\n\"\r\n}\r\n\r\ndef String gt(int counter) {\r\n  return \"@SP\\n\" +\r\n          \"A=M-1\\n\" +\r\n          \"D=M\\n\" +\r\n          \"A=A-1\\n\" +\r\n          \"D=M-D\\n\" +\r\n          \"@IF_TRUE${counter}\\n\" +\r\n          \"D;JGT\\n\" +\r\n          \"D=0\\n\" +\r\n          \"@IF_FALSE${counter}\\n\" +\r\n          \"0;JMP\\n\" +\r\n          \"(IF_TRUE${counter})\\n\" +\r\n          \"D=-1\\n\" +\r\n          \"(IF_FALSE${counter})\\n\" +\r\n          \"@SP\\n\" +\r\n          \"A=M-1\\n\" +\r\n          \"A=A-1\\n\" +\r\n          \"M=D\\n\" +\r\n          \"@SP\\n\" +\r\n          \"M=M-1\\n\"\r\n}\r\n\r\ndef String not() {\r\n  return \"@SP\\n\" +\r\n          \"A=M-1\\n\" +\r\n          \"M=!M\\n\"\r\n}\r\n\r\ndef String label(String[] strings) {\r\n  return \"(${strings[1]})\\n\"\r\n}\r\n\r\ndef String ifGoto(String[] strings) {\r\n  return \"@SP\\n\" +\r\n          \"M=M-1\\n\" +\r\n          \"A=M\\n\" +\r\n          \"D=M\\n\" +\r\n          \"@${strings[1]}\\n\" +\r\n          \"D;JNE\\n\"\r\n}\r\n\r\ndef String gotoF(String[] strings) {\r\n  return \"@${strings[1]}\\n\" +\r\n          \"0;JMP\\n\"\r\n}\r\n\r\ndef String function(String[] strings) {\r\n  def str = \"(${strings[1]})\\n\" +\r\n          \"@${strings[1]}.local\\n\" +\r\n          \"M=0\\n\" +\r\n          \"(${strings[1]}.loc_loop)\\n\" +\r\n          \"@${strings[2]}\\n\" +\r\n          \"D=A\\n\" +\r\n          \"@${strings[1]}.local\\n\" +\r\n          \"D=D-M\\n\" +\r\n          \"@${strings[1]}.end_loc_loop\\n\" +\r\n          \"D;JEQ\\n\" +\r\n          \"@SP\\n\" +\r\n          \"M=M+1\\n\" +\r\n          \"A=M-1\\n\" +\r\n          \"M=0\\n\" +\r\n          \"@${strings[1]}.local\\n\" +\r\n          \"M=M+1\\n\" +\r\n          \"@${strings[1]}.loc_loop\\n\" +\r\n          \"0;JMP\\n\" +\r\n          \"(${strings[1]}.end_loc_loop)\\n\"\r\n  return str\r\n}\r\n\r\ndef String callF(String[] strings,int counter) {\r\n  def str = \"@${strings[1]}.return${counter}\\n\" +\r\n          \"D=A\\n\" +\r\n          \"@SP\\n\" +\r\n          \"M=M+1\\n\" +\r\n          \"A=M-1\\n\" +\r\n          \"M=D\\n\" +\r\n          \"@LCL\\n\" +\r\n          \"D=M\\n\" +\r\n          \"@SP\\n\" +\r\n          \"M=M+1\\n\" +\r\n          \"A=M-1\\n\" +\r\n          \"M=D\\n\" +\r\n          \"@ARG\\n\" +\r\n          \"D=M\\n\" +\r\n          \"@SP\\n\" +\r\n          \"M=M+1\\n\" +\r\n          \"A=M-1\\n\" +\r\n          \"M=D\\n\" +\r\n          \"@THIS\\n\" +\r\n          \"D=M\\n\" +\r\n          \"@SP\\n\" +\r\n          \"M=M+1\\n\" +\r\n          \"A=M-1\\n\" +\r\n          \"M=D\\n\" +\r\n          \"@THAT\\n\" +\r\n          \"D=M\\n\" +\r\n          \"@SP\\n\" +\r\n          \"M=M+1\\n\" +\r\n          \"A=M-1\\n\" +\r\n          \"M=D\\n\" +\r\n          \"D=A+1\\n\"\r\n  int temp = 5 + strings[2].toInteger()\r\n  str +=  \"@${temp}\\n\" +\r\n          \"D=D-A\\n\" +\r\n          \"@ARG\\n\" +\r\n          \"M=D\\n\" +\r\n          \"@SP\\n\" +\r\n          \"D=M\\n\" +\r\n          \"@LCL\\n\" +\r\n          \"M=D\\n\" +\r\n          \"@${strings[1]}\\n\" +\r\n          \"0;JMP\\n\"\r\n  def temp1 =  \"${strings[1]}.return${counter}\"\r\n  str += \"(\"+ temp1 + \")\\n\"\r\n  return str\r\n}\r\n\r\ndef String returnF() {\r\n  // save the return address\r\n  def str = \"@LCL\\n\" +\r\n          \"D=M\\n\" +\r\n          \"@5\\n\" +\r\n          \"A=D-A\\n\" +\r\n          \"D=M\\n\" +\r\n          \"@13\\n\" +\r\n          \"M=D\\n\" +\r\n          \"@SP\\n\" +\r\n          \"M=M-1\\n\" +\r\n          \"A=M\\n\"+\r\n          \"D=M\\n\" +\r\n          \"@ARG\\n\" +\r\n          \"A=M\\n\" +\r\n          \"M=D\\n\"\r\n  // pop the return value\r\n  str += \"@ARG\\n\" +\r\n          \"D=M\\n\" +\r\n          \"@SP\\n\" +\r\n          \"M=D+1\\n\" +\r\n          \"@LCL\\n\" +\r\n          \"M=M-1\\n\" +\r\n          \"A=M\\n\" +\r\n          \"D=M\\n\" +\r\n          \"@THAT\\n\" +\r\n          \"M=D\\n\" +\r\n          \"@LCL\\n\" +\r\n          \"M=M-1\\n\" +\r\n          \"A=M\\n\" +\r\n          \"D=M\\n\" +\r\n          \"@THIS\\n\" +\r\n          \"M=D\\n\" +\r\n          \"@LCL\\n\" +\r\n          \"M=M-1\\n\" +\r\n          \"A=M\\n\" +\r\n          \"D=M\\n\" +\r\n          \"@ARG\\n\" +\r\n          \"M=D\\n\" +\r\n          \"@LCL\\n\" +\r\n          \"M=M-1\\n\" +\r\n          \"A=M\\n\" +\r\n          \"D=M\\n\" +\r\n          \"@LCL\\n\" +\r\n          \"M=D\\n\" +\r\n          \"@13\\n\" +\r\n          \"A=M\\n\" +\r\n          \"0;JMP\\n\"\r\n  return str\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Targil1/src/Main.groovy b/Targil1/src/Main.groovy
+--- a/Targil1/src/Main.groovy	
++++ b/Targil1/src/Main.groovy	
+@@ -22,27 +22,19 @@
+ int counter = 0
+ def vmFiles = folder.listFiles().findAll { it.name.endsWith('.vm') }
+ 
+-if (folder.listFiles().name.contains("Sys.vm") && vmFiles.size() <= 2)
++if (vmFiles.size() >=2)
+ {
+   buffer = "@256\n" +
+-           "D=A\n" +
+-           "@SP\n" +
+-           "M=D\n"
+-  def line = "call Sys.int 0"
++          "D=A\n" +
++          "@SP\n" +
++          "M=D\n"
++  def line = "call Sys.init 0"
+   buffer += callF(line.split(" "),counter)
+   counter++
+   buffer += "@Sys.init\n" +
+-           "0;JMP\n"
+-}
+-if (folder.listFiles().name.contains("Sys.vm") && vmFiles.size() == 1)
+-        {
+-          buffer = "@261\n" +
+-                  "D=A\n" +
+-                  "@SP\n" +
+-                  "M=D\n" +
+-                  "@Sys.init\n" +
+-                  "0;JMP\n"
+-        }
++          "0;JMP\n"
++}
++
+ folder.eachFile { file ->
+   if (file.name.endsWith(".vm")) {
+     file.eachLine { line ->
+@@ -106,6 +98,9 @@
+           case "goto":
+             buffer += gotoF(parts)
+             break
++          case "#and":
++            buffer += and_new(parts)
++            break
+         }
+         buffer += "\n"
+       }
+@@ -213,7 +208,8 @@
+       }
+       break
+     case "static":
+-      str =   "@${16 + strings[2].toInteger()}\n" +
++      def temp = "${name}.${strings[2].toInteger()}"
++      str =   "@${temp}\n" +
+               "D=M\n" +
+               "@SP\n" +
+               "A=M\n" +
+@@ -336,7 +332,7 @@
+               "M=M-1\n" +
+               "A=M\n" +
+               "D=M\n"
+-      def temp = 16 + strings[2].toInteger()
++      def temp = "${name}.${strings[2].toInteger()}"
+       str += "@${temp}\n" +
+               "M=D\n"
+       break
+@@ -582,4 +578,18 @@
+           "A=M\n" +
+           "0;JMP\n"
+   return str
++}
++
++def String and_new(String[] strings) {
++  def str = "@SP\n" +
++          "A=M-1\n" +
++          "D=M\n" +
++          "A=A-1\n" +
++          "M=D&M\n" +
++          "@SP\n" +
++          "M=M-1\n" +
++          "@SP\n" +
++          "A=M-1\n" +
++          "M=!M\n"
++  return str
+ }
+\ No newline at end of file
+Index: nand2tetris/tools/bin/CPU Emulator.dat
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>C:\\Users\\arial\\groovy\\nand2tetris\\projects\\08\\FunctionCalls\\SimpleFunction\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/nand2tetris/tools/bin/CPU Emulator.dat b/nand2tetris/tools/bin/CPU Emulator.dat
+--- a/nand2tetris/tools/bin/CPU Emulator.dat	
++++ b/nand2tetris/tools/bin/CPU Emulator.dat	
+@@ -1,1 +1,1 @@
+-C:\Users\arial\groovy\nand2tetris\projects\08\FunctionCalls\SimpleFunction
++C:\nand2tetris\nand2tetris\projects\08\FunctionCalls\StaticsTest
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"dc1f39bb-9342-46cd-8d10-b2c1dbec95fd\" name=\"Changes\" comment=\"end Tragil2\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Targil1/src/Main.groovy\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Targil1/src/Main.groovy\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/nand2tetris/tools/bin/CPU Emulator.dat\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/nand2tetris/tools/bin/CPU Emulator.dat\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;arielaamm&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/arielaamm/nand2tetris&quot;,\r\n    &quot;accountId&quot;: &quot;6bef7510-3128-4502-b959-47428ab60405&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"ProjectErrors\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 2\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2gq0m3RcJhOwBNEyQw3yR7hm54U\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Groovy.Main.executor&quot;: &quot;Run&quot;,\r\n    &quot;Groovy.findFiles.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/arial/groovy&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150\" />\r\n        <option value=\"bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"dc1f39bb-9342-46cd-8d10-b2c1dbec95fd\" name=\"Changes\" comment=\"\" />\r\n      <created>1716409956094</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1716409956094</updated>\r\n      <workItem from=\"1716409957188\" duration=\"190000\" />\r\n      <workItem from=\"1716410176578\" duration=\"13000\" />\r\n      <workItem from=\"1716410215718\" duration=\"336000\" />\r\n      <workItem from=\"1716410601129\" duration=\"514000\" />\r\n      <workItem from=\"1716411422242\" duration=\"458000\" />\r\n      <workItem from=\"1716411942016\" duration=\"1029000\" />\r\n      <workItem from=\"1717005459190\" duration=\"1379000\" />\r\n      <workItem from=\"1717007429893\" duration=\"638000\" />\r\n      <workItem from=\"1717083684055\" duration=\"605000\" />\r\n      <workItem from=\"1717329253310\" duration=\"96000\" />\r\n      <workItem from=\"1717340731978\" duration=\"5234000\" />\r\n      <workItem from=\"1717346082630\" duration=\"141000\" />\r\n      <workItem from=\"1717513241024\" duration=\"3000\" />\r\n      <workItem from=\"1717944694097\" duration=\"6408000\" />\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00001\" summary=\"end Tragil1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716411615065</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1716411615065</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00002\" summary=\"end Tragil1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716411667292</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1716411667292</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00003\" summary=\"end Tragil1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716412216511</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1716412216511</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00004\" summary=\"end Tragil1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716412348702</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1716412348702</updated>\r\n    </task>\r\n    <task id=\"LOCAL\u200E-00005\" summary=\"end Tragil2\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1717346003598</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL\u200E-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\u200E\" />\r\n      <updated>1717346003598</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"6\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"end Tragil1\" />\r\n    <MESSAGE value=\"end Tragil2\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"end Tragil2\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <breakpoint enabled=\"true\" type=\"java-exception\">\r\n          <properties class=\"groovy.lang.MissingMethodException\" package=\"groovy.lang\" />\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </breakpoint>\r\n        <breakpoint enabled=\"true\" type=\"java-exception\">\r\n          <properties class=\"java.io.FileNotFoundException\" package=\"java.io\" />\r\n          <option name=\"timeStamp\" value=\"2\" />\r\n        </breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n    <watches-manager>\r\n      <configuration name=\"GroovyScriptRunConfiguration\">\r\n        <watch expression=\"folder\" />\r\n      </configuration>\r\n    </watches-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -7,6 +7,7 @@
+     <list default="true" id="dc1f39bb-9342-46cd-8d10-b2c1dbec95fd" name="Changes" comment="end Tragil2">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/Targil1/src/Main.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/Targil1/src/Main.groovy" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/StaticTest/StaticTest.asm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/StaticTest/StaticTest.asm" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/nand2tetris/tools/bin/CPU Emulator.dat" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/tools/bin/CPU Emulator.dat" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -29,6 +30,9 @@
+     &quot;accountId&quot;: &quot;6bef7510-3128-4502-b959-47428ab60405&quot;
+   }
+ }</component>
++  <component name="MarkdownSettingsMigration">
++    <option name="stateVersion" value="1" />
++  </component>
+   <component name="ProblemsViewState">
+     <option name="selectedTabId" value="ProjectErrors" />
+   </component>
+@@ -41,29 +45,32 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;Groovy.Main.executor&quot;: &quot;Run&quot;,
+-    &quot;Groovy.findFiles.executor&quot;: &quot;Run&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/arial/groovy&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Groovy.Main.executor": "Run",
++    "Groovy.findFiles.executor": "Run",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "git-widget-placeholder": "master",
++    "ignore.virus.scanning.warn.message": "true",
++    "kotlin-language-version-configured": "true",
++    "last_opened_file_path": "C:/nand2tetris",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "project.structure.last.edited": "Project",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.2",
++    "settings.editor.selected.configurable": "preferences.lookFeel",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
++        <option value="jdk-22-openjdk-22-3183f394aec4-bad0321e" />
+       </set>
+     </attachedChunks>
+   </component>
