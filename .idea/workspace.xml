@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc1f39bb-9342-46cd-8d10-b2c1dbec95fd" name="Changes" comment="Tragil2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Targil1/src/Main.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/Targil1/src/Main.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/BasicTest/BasicTest.asm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/BasicTest/BasicTest.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/PointerTest/PointerTest.asm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/PointerTest/PointerTest.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/StaticTest/StaticTest.asm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/MemoryAccess/StaticTest/StaticTest.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.asm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.cmp" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.cmp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.out" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.vm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/SimpleAdd/SimpleAdd.vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/StackTest/StackTest.asm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/StackTest/StackTest.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/StackTest/StackTest.out" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/07/StackArithmetic/StackTest/StackTest.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/tools/bin/CPU Emulator.dat" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/tools/bin/CPU Emulator.dat" afterDir="false" />
-    </list>
+    <list default="true" id="dc1f39bb-9342-46cd-8d10-b2c1dbec95fd" name="Changes" comment="Tragil1 hagana add #and" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +89,7 @@
       <workItem from="1717513241024" duration="3000" />
       <workItem from="1717944694097" duration="6948000" />
       <workItem from="1717953701011" duration="19000" />
-      <workItem from="1718036504815" duration="1876000" />
+      <workItem from="1718036504815" duration="2051000" />
     </task>
     <task id="LOCAL‎-00001" summary="end Tragil1">
       <option name="closed" value="true" />
@@ -152,7 +139,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1717951153328</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL‎-00007" summary="Tragil1 hagana add #and">
+      <option name="closed" value="true" />
+      <created>1718038540117</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL‎-00007" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1718038540118</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +168,8 @@
     <MESSAGE value="end Tragil1" />
     <MESSAGE value="end Tragil2" />
     <MESSAGE value="Tragil2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tragil2" />
+    <MESSAGE value="Tragil1 hagana add #and" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tragil1 hagana add #and" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
