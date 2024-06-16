@@ -2,7 +2,7 @@
 D=A
 @SP
 M=D
-@Sys.int.return0
+@Sys.init.return0
 D=A
 @SP
 M=M+1
@@ -41,9 +41,9 @@ M=D
 D=M
 @LCL
 M=D
-@Sys.int
+@Sys.init
 0;JMP
-(Sys.int.return0)
+(Sys.init.return0)
 @Sys.init
 0;JMP
 

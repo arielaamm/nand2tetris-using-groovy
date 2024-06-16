@@ -1,9 +1,3 @@
-@261
-D=A
-@SP
-M=D
-@Sys.init
-0;JMP
 
 
 (Sys.init)
@@ -58,7 +52,7 @@ M=D
 @SP
 M=M-1
 
-@Sys.main.return3
+@Sys.main.return2
 D=A
 @SP
 M=M+1
@@ -99,7 +93,7 @@ D=M
 M=D
 @Sys.main
 0;JMP
-(Sys.main.return3)
+(Sys.main.return2)
 
 @SP
 A=M-1
@@ -233,7 +227,7 @@ M=D
 @SP
 M=M+1
 
-@Sys.add12.return10
+@Sys.add12.return9
 D=A
 @SP
 M=M+1
@@ -274,7 +268,7 @@ D=M
 M=D
 @Sys.add12
 0;JMP
-(Sys.add12.return10)
+(Sys.add12.return9)
 
 @SP
 A=M-1

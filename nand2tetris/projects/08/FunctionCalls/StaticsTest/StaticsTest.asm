@@ -1,3 +1,51 @@
+@256
+D=A
+@SP
+M=D
+@Sys.init.return0
+D=A
+@SP
+M=M+1
+A=M-1
+M=D
+@LCL
+D=M
+@SP
+M=M+1
+A=M-1
+M=D
+@ARG
+D=M
+@SP
+M=M+1
+A=M-1
+M=D
+@THIS
+D=M
+@SP
+M=M+1
+A=M-1
+M=D
+@THAT
+D=M
+@SP
+M=M+1
+A=M-1
+M=D
+D=A+1
+@5
+D=D-A
+@ARG
+M=D
+@SP
+D=M
+@LCL
+M=D
+@Sys.init
+0;JMP
+(Sys.init.return0)
+@Sys.init
+0;JMP
 
 (Class1.set)
 @Class1.set.local
@@ -34,7 +82,7 @@ M=M+1
 M=M-1
 A=M
 D=M
-@16
+@Class1.0
 M=D
 
 @1
@@ -52,7 +100,7 @@ M=M+1
 M=M-1
 A=M
 D=M
-@17
+@Class1.1
 M=D
 
 @0
@@ -130,7 +178,7 @@ M=M+1
 0;JMP
 (Class1.get.end_loc_loop)
 
-@16
+@Class1.0
 D=M
 @SP
 A=M
@@ -138,7 +186,7 @@ M=D
 @SP
 M=M+1
 
-@17
+@Class1.1
 D=M
 @SP
 A=M
@@ -236,7 +284,7 @@ M=M+1
 M=M-1
 A=M
 D=M
-@16
+@Class2.0
 M=D
 
 @1
@@ -254,7 +302,7 @@ M=M+1
 M=M-1
 A=M
 D=M
-@17
+@Class2.1
 M=D
 
 @0
@@ -332,7 +380,7 @@ M=M+1
 0;JMP
 (Class2.get.end_loc_loop)
 
-@16
+@Class2.0
 D=M
 @SP
 A=M
@@ -340,7 +388,7 @@ M=D
 @SP
 M=M+1
 
-@17
+@Class2.1
 D=M
 @SP
 A=M
@@ -439,7 +487,7 @@ M=D
 @SP
 M=M+1
 
-@Class1.set.return4
+@Class1.set.return5
 D=A
 @SP
 M=M+1
@@ -480,7 +528,7 @@ D=M
 M=D
 @Class1.set
 0;JMP
-(Class1.set.return4)
+(Class1.set.return5)
 
 @SP
 A=M-1
@@ -506,7 +554,7 @@ M=D
 @SP
 M=M+1
 
-@Class2.set.return6
+@Class2.set.return7
 D=A
 @SP
 M=M+1
@@ -547,7 +595,7 @@ D=M
 M=D
 @Class2.set
 0;JMP
-(Class2.set.return6)
+(Class2.set.return7)
 
 @SP
 A=M-1
@@ -557,7 +605,7 @@ M=D
 @SP
 M=M-1
 
-@Class1.get.return8
+@Class1.get.return9
 D=A
 @SP
 M=M+1
@@ -598,9 +646,9 @@ D=M
 M=D
 @Class1.get
 0;JMP
-(Class1.get.return8)
+(Class1.get.return9)
 
-@Class2.get.return9
+@Class2.get.return10
 D=A
 @SP
 M=M+1
@@ -641,7 +689,7 @@ D=M
 M=D
 @Class2.get
 0;JMP
-(Class2.get.return9)
+(Class2.get.return10)
 
 (WHILE)
 
