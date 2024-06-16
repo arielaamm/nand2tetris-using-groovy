@@ -20,20 +20,20 @@ def folder = new File(path)
 def outputFile = new File("${folder.path}/${folder.name}.asm").newWriter()
 String buffer = ""
 int counter = 0
-//def vmFiles = folder.listFiles().findAll { it.name.endsWith('.vm') }
-//
-//if (folder.listFiles().name.contains("Sys.vm") && vmFiles.size() <= 2)
-//{
-//  buffer = "@256\n" +
-//           "D=A\n" +
-//           "@SP\n" +
-//           "M=D\n"
-//  def line = "call Sys.int 0"
-//  buffer += callF(line.split(" "),counter)
-//  counter++
-//  buffer += "@Sys.init\n" +
-//           "0;JMP\n"
-//}
+def vmFiles = folder.listFiles().findAll { it.name.endsWith('.vm') }
+
+if (vmFiles.size() >=2)
+{
+  buffer = "@256\n" +
+          "D=A\n" +
+          "@SP\n" +
+          "M=D\n"
+  def line = "call Sys.init 0"
+  buffer += callF(line.split(" "),counter)
+  counter++
+  buffer += "@Sys.init\n" +
+          "0;JMP\n"
+}
 //if (folder.listFiles().name.contains("Sys.vm") && vmFiles.size() == 1)
 //        {
 //          buffer = "@261\n" +
@@ -216,7 +216,8 @@ def String push(String[] strings,String name) {
       }
       break
     case "static":
-      str =   "@${16 + strings[2].toInteger()}\n" +
+      def temp = "${name}.${strings[2].toInteger()}"
+      str =   "@${temp}\n" +
               "D=M\n" +
               "@SP\n" +
               "A=M\n" +
@@ -339,7 +340,7 @@ def String pop(String[] strings,String name) {
               "M=M-1\n" +
               "A=M\n" +
               "D=M\n"
-      def temp = 16 + strings[2].toInteger()
+      def temp = "${name}.${strings[2].toInteger()}"
       str += "@${temp}\n" +
               "M=D\n"
       break
