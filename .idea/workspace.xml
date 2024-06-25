@@ -4,13 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc1f39bb-9342-46cd-8d10-b2c1dbec95fd" name="Changes" comment="Tragil1 hagana add #and" />
+    <list default="true" id="dc1f39bb-9342-46cd-8d10-b2c1dbec95fd" name="Changes" comment="Tragil1 hagana add #and">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2024_18_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2024_18_52__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/08/FunctionCalls/StaticsTest/StaticsTest.asm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/08/FunctionCalls/StaticsTest/StaticsTest.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/08/FunctionCalls/StaticsTest/StaticsTest.out" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/08/FunctionCalls/StaticsTest/StaticsTest.out" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -90,6 +101,9 @@
       <workItem from="1717944694097" duration="6948000" />
       <workItem from="1717953701011" duration="19000" />
       <workItem from="1718036504815" duration="2051000" />
+      <workItem from="1718553433159" duration="2387000" />
+      <workItem from="1718571070024" duration="653000" />
+      <workItem from="1718876081782" duration="157000" />
     </task>
     <task id="LOCAL‎-00001" summary="end Tragil1">
       <option name="closed" value="true" />
@@ -147,7 +161,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1718038540118</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL‎-00008" summary="Tragil1 hagana add #and">
+      <option name="closed" value="true" />
+      <created>1718553554968</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL‎-00008" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1718553554969</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
