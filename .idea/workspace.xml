@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc1f39bb-9342-46cd-8d10-b2c1dbec95fd" name="Changes" comment="Tragil1 hagana add #and">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2024_18_52__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2024_18_52__Changes_.xml" afterDir="false" />
+    <list default="true" id="dc1f39bb-9342-46cd-8d10-b2c1dbec95fd" name="Changes" comment="Targil4 add">
+      <change afterPath="$PROJECT_DIR$/Targil4/src/Tokenizing.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ArrayTest/MainDEMO.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ExpressionLessSquare/ExpressionLessSquareDEMO.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/Square/MainDEMO.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/Square/SquareDEMO.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/Square/SquareGameDEMO.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/08/FunctionCalls/StaticsTest/StaticsTest.asm" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/08/FunctionCalls/StaticsTest/StaticsTest.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/08/FunctionCalls/StaticsTest/StaticsTest.out" beforeDir="false" afterPath="$PROJECT_DIR$/nand2tetris/projects/08/FunctionCalls/StaticsTest/StaticsTest.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Targil4/src/Main.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/Targil4/src/Main.groovy" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,38 +41,42 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2gq0m3RcJhOwBNEyQw3yR7hm54U" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Groovy.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Groovy.findFiles.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/arial/groovy&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Groovy.Main.executor": "Run",
+    "Groovy.findFiles.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/arial/groovy",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -104,6 +112,7 @@
       <workItem from="1718553433159" duration="2387000" />
       <workItem from="1718571070024" duration="653000" />
       <workItem from="1718876081782" duration="157000" />
+      <workItem from="1719332003993" duration="10360000" />
     </task>
     <task id="LOCAL‎-00001" summary="end Tragil1">
       <option name="closed" value="true" />
@@ -169,7 +178,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1718553554969</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL‎-00009" summary="Targil4 add">
+      <option name="closed" value="true" />
+      <created>1719332154192</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL‎-00009" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1719332154192</updated>
+    </task>
+    <task id="LOCAL‎-00010" summary="Targil4 add">
+      <option name="closed" value="true" />
+      <created>1719332182423</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL‎-00010" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1719332182423</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,11 +212,13 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="end Tragil1" />
     <MESSAGE value="end Tragil2" />
     <MESSAGE value="Tragil2" />
     <MESSAGE value="Tragil1 hagana add #and" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tragil1 hagana add #and" />
+    <MESSAGE value="Targil4 add" />
+    <option name="LAST_COMMIT_MESSAGE" value="Targil4 add" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
