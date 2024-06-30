@@ -4,15 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc1f39bb-9342-46cd-8d10-b2c1dbec95fd" name="Changes" comment="Targil4 add">
-      <change afterPath="$PROJECT_DIR$/Targil4/src/Tokenizing.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ArrayTest/MainDEMO.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ExpressionLessSquare/ExpressionLessSquareDEMO.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/Square/MainDEMO.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/Square/SquareDEMO.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/Square/SquareGameDEMO.xml" afterDir="false" />
+    <list default="true" id="dc1f39bb-9342-46cd-8d10-b2c1dbec95fd" name="Changes" comment="Targil4 end">
+      <change afterPath="$PROJECT_DIR$/Targil4/src/Parsing.groovy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ArrayTest/MainNew.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ArrayTest/MainTNew.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ExpressionLessSquare/MainNew.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ExpressionLessSquare/MainTNew.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ExpressionLessSquare/SquareGameNew.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ExpressionLessSquare/SquareGameTNew.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ExpressionLessSquare/SquareNew.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ExpressionLessSquare/SquareTNew.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/Square/MainNew.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/Square/MainTNew.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/Square/SquareGameNew.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/Square/SquareGameTNew.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/Square/SquareNew.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/Square/SquareTNew.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Targil4/src/Main.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/Targil4/src/Main.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Targil4/src/Tokenizing.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/Targil4/src/Tokenizing.groovy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/10/ArrayTest/MainDEMO.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/10/ExpressionLessSquare/ExpressionLessSquareDEMO.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/10/Square/MainDEMO.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/10/Square/SquareDEMO.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/10/Square/SquareGameDEMO.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +127,9 @@
       <workItem from="1718553433159" duration="2387000" />
       <workItem from="1718571070024" duration="653000" />
       <workItem from="1718876081782" duration="157000" />
-      <workItem from="1719332003993" duration="10360000" />
+      <workItem from="1719332003993" duration="10587000" />
+      <workItem from="1719398570928" duration="20680000" />
+      <workItem from="1719762942078" duration="4796000" />
     </task>
     <task id="LOCAL‎-00001" summary="end Tragil1">
       <option name="closed" value="true" />
@@ -194,7 +211,23 @@
       <option name="project" value="LOCAL‎" />
       <updated>1719332182423</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL‎-00011" summary="Targil4">
+      <option name="closed" value="true" />
+      <created>1719342721773</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL‎-00011" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1719342721773</updated>
+    </task>
+    <task id="LOCAL‎-00012" summary="Targil4">
+      <option name="closed" value="true" />
+      <created>1719342880215</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL‎-00012" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1719342880215</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,24 +251,31 @@
     <MESSAGE value="Tragil2" />
     <MESSAGE value="Tragil1 hagana add #and" />
     <MESSAGE value="Targil4 add" />
-    <option name="LAST_COMMIT_MESSAGE" value="Targil4 add" />
+    <MESSAGE value="Targil4" />
+    <MESSAGE value="Targil4 end" />
+    <option name="LAST_COMMIT_MESSAGE" value="Targil4 end" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <breakpoint enabled="true" type="java-exception">
-          <properties class="groovy.lang.MissingMethodException" package="groovy.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
           <properties class="java.io.FileNotFoundException" package="java.io" />
           <option name="timeStamp" value="2" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Targil4/src/Parsing.groovy</url>
+          <line>278</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="GroovyScriptRunConfiguration">
-        <watch expression="folder" />
+        <watch expression="public_buffer" language="Groovy" />
+        <watch expression="public_file" language="Groovy" />
+        <watch expression="countLine" language="Groovy" />
+        <watch expression="tab" language="Groovy" />
+        <watch expression="this" />
       </configuration>
     </watches-manager>
   </component>
