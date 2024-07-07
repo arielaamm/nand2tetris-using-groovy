@@ -5,29 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc1f39bb-9342-46cd-8d10-b2c1dbec95fd" name="Changes" comment="Targil4 end">
-      <change afterPath="$PROJECT_DIR$/Targil4/src/Parsing.groovy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ArrayTest/MainNew.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ArrayTest/MainTNew.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ExpressionLessSquare/MainNew.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ExpressionLessSquare/MainTNew.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ExpressionLessSquare/SquareGameNew.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ExpressionLessSquare/SquareGameTNew.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ExpressionLessSquare/SquareNew.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/ExpressionLessSquare/SquareTNew.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/Square/MainNew.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/Square/MainTNew.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/Square/SquareGameNew.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/Square/SquareGameTNew.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/Square/SquareNew.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nand2tetris/projects/10/Square/SquareTNew.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Targil4/src/Main.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/Targil4/src/Main.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Targil4/src/Tokenizing.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/Targil4/src/Tokenizing.groovy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/10/ArrayTest/MainDEMO.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/10/ExpressionLessSquare/ExpressionLessSquareDEMO.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/10/Square/MainDEMO.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/10/Square/SquareDEMO.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nand2tetris/projects/10/Square/SquareGameDEMO.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,29 +47,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Groovy.Main.executor": "Run",
-    "Groovy.findFiles.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/arial/groovy",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "vcs.Git",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Groovy.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Groovy.findFiles.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/arial/Java/Image_Rendering&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -129,7 +107,8 @@
       <workItem from="1718876081782" duration="157000" />
       <workItem from="1719332003993" duration="10587000" />
       <workItem from="1719398570928" duration="20680000" />
-      <workItem from="1719762942078" duration="4796000" />
+      <workItem from="1719762942078" duration="7298000" />
+      <workItem from="1719784976905" duration="101000" />
     </task>
     <task id="LOCAL‎-00001" summary="end Tragil1">
       <option name="closed" value="true" />
@@ -227,7 +206,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1719342880215</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL‎-00013" summary="Targil4 end">
+      <option name="closed" value="true" />
+      <created>1719768410442</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL‎-00013" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1719768410442</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
